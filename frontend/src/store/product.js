@@ -21,7 +21,9 @@ export const useProductStore = create((set) => ({
   fetchProducts: async () => {
     const res = await fetch("/api/products");
     const data = await res.json();
+    console.log("Avant set({ products: data.data });");
     set({ products: data.data });
+    console.log("Apres set({ products: data.data });");
   },
   deleteProduct: async (id) => {
     const res = await fetch(`/api/products/${id}`, {
